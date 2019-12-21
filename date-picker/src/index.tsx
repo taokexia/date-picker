@@ -1,11 +1,12 @@
 // src/index.tsx
 import React from 'react'
 import ReactDOM from 'react-dom'
+import DatePicker from './components/DatePicker'
 
 function App() {
   return (
     <div className="app">
-      hello world
+      <DatePicker />
     </div>
   )
 }
