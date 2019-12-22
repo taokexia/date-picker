@@ -1,13 +1,45 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import cls from 'classnames'
+import { DatePickerPanelCommonProps, DatePickerPanelProps } from './panel'
 
-export function DatePickerPanelFooter() {
-  const panelFooterPrefixCls = `date-picker`
+export interface DatePickerPanelFooterProps
+  extends DatePickerPanelCommonProps,
+    Pick<DatePickerPanelProps, 'allowClear' | 'showToday'> {
+  onSelectToday: () => void
+  onClearSelectedDate: () => void
+}
 
-  return (
+export function DatePickerPanelFooter(props: DatePickerPanelFooterProps) {
+  const {
+    showToday,
+    allowClear,
+    prefixCls,
+    onSelectToday,
+    onClearSelectedDate
+  } = props
+
+  const panelFooterPrefixCls = useMemo(() => `${prefixCls}-panel-footer`, [
+    prefixCls
+  ])
+
+  return showToday || allowClear ? (
     <div className={cls(panelFooterPrefixCls)}>
-      <div className={cls(`${panelFooterPrefixCls}-today`)}>今天</div>
-      <div className={cls(`${panelFooterPrefixCls}-clear`)}>清除</div>
+      {showToday && (
+        <div
+          className={cls(`${panelFooterPrefixCls}-today`)}
+          onClick={onSelectToday}
+        >
+          今天
+        </div>
+      )}
+      {allowClear && (
+        <div
+          className={cls(`${panelFooterPrefixCls}-clear`)}
+          onClick={onClearSelectedDate}
+        >
+          清除
+        </div>
+      )}
     </div>
-  )
+  ) : null
 }

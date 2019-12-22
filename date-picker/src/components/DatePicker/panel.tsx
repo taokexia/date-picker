@@ -1,31 +1,26 @@
-import React, { useState,useCallback } from 'react'
+//  DatePicker/panel.tsx
+import React, { RefObject, useCallback, useRef, useState, useEffect } from 'react'
 import { DatePickerPanelHeader } from './header'
 import { DatePickerPanelFooter } from './footer'
 import { DatePickerPanelContent } from './content'
 import { createPortal } from 'react-dom'
 import { DatePickerProps } from './'
 import moment, { Moment } from 'moment'
+import cls from 'classnames'
 
 export interface DatePickerPanelCommonProps
   extends Required<Pick<DatePickerProps, 'prefixCls'>> {}
 
-// Omit Required Pick 等是 TypeScript 提供的工具类型 下面会讲到
 export interface DatePickerPanelProps
   extends Omit<DatePickerProps, 'onChange'> {
-  // 控制当前面板是显示还是隐藏
   visible: boolean | null
-  // 当前面板选中的日期
   selectedDate: Moment | undefined
-  // 当前面板选中的日期的回调，触发父级的 onChange 回调
   onSelectedDate?: DatePickerProps['onChange']
-  // 清除当前面板选中的日期的回调
   onClearSelectedDate: () => void
-  // 当前面板的位置
   position: {
     left: number | string
     top: number | string
   }
-  // 要获取面板的位置，就需要用到 ref 通过一个回调将 ref 传给父级
   onGetPanelRef: (ref: RefObject<HTMLDivElement>) => void
 }
 
@@ -34,12 +29,38 @@ function DatePickerPanel(props: DatePickerPanelProps) {
     showToday,
     allowClear,
     getPopupContainer = () => document.body,
-    onSelectedDate,
     prefixCls,
-    onClearSelectedDate
+    position,
+    popupContainerClassName,
+    visible: panelVisible,
+    selectedDate: selectedDateFromProps
   } = props
 
+  const onSelectedDate = useCallback((value: moment.Moment | undefined) => {
+     setSelectedDate(() => {
+       props.onSelectedDate?.(value)
+       return value || moment()
+     })
+   }, [props.onSelectedDate])
+
+   const onSelectToday = useCallback(() => {
+     onSelectedDate(moment())
+   }, [onSelectedDate])
+
+   const onClearSelectedDate = useCallback(() => {
+     onSelectedDate(undefined)
+     props.onClearSelectedDate()
+   }, [onSelectToday])
+
+  useEffect(() => {
+    setSelectedDate(selectedDateFromProps || moment())
+  }, [selectedDateFromProps])
   const [selectedDate, setSelectedDate] = useState<Moment>(() => moment())
+  const panelRef = useRef<HTMLDivElement>(null)
+  // 将当前的 panel ref 传递给父组件
+  useEffect(() => {
+    props.onGetPanelRef(panelRef)
+  }, [panelRef])
 
   const onAddMonth = useCallback(() => {
     setSelectedDate(selectedDate.clone().add(1, 'month'))
@@ -49,8 +70,18 @@ function DatePickerPanel(props: DatePickerPanelProps) {
     setSelectedDate(selectedDate.clone().subtract(1, 'month'))
   }, [selectedDate])
 
+  const { left, top } = position
+
   return createPortal(
-    <div className={`date-picker-panel`}>
+    <div
+      className={cls(`${prefixCls}-panel`, popupContainerClassName, {
+        [`${prefixCls}-open`]: panelVisible,
+        [`${prefixCls}-close`]: !panelVisible,
+        [`${prefixCls}-no-animate`]: panelVisible === null
+      })}
+      style={{ left, top }}
+      ref={panelRef}
+    >
       <DatePickerPanelHeader
         selectedDate={selectedDate}
         prefixCls={prefixCls!}
@@ -66,6 +97,7 @@ function DatePickerPanel(props: DatePickerPanelProps) {
         prefixCls={prefixCls!}
         showToday={showToday}
         allowClear={allowClear}
+        onSelectToday={onSelectToday}
         onClearSelectedDate={onClearSelectedDate}
       />
     </div>,

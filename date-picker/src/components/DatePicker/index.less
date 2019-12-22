@@ -56,6 +56,16 @@
     position: relative;
     cursor: pointer;
   }
+  &-no-animate {
+    animation: none !important;
+  }
+  &-open {
+    animation: date-picker-open @default-transition forwards;
+  }
+  &-close {
+    animation: date-picker-close @default-transition forwards;
+    pointer-events: none;
+  }
   &-panel {
     width: @date-picker-content-width;
     height: auto;
@@ -64,6 +74,7 @@
     left: 0;
     top: 0;
     margin-top: @date-picker-offset-top;
+    transform: scale(0);
     background: #fff;
     border: 1px solid @border-color;
     z-index: @date-picker-z-index;
@@ -157,6 +168,32 @@
         color: @disabled-font-color;
       }
     }
+    &-footer {
+        margin-top: 20px;
+        padding-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+        &-today,
+        &-clear {
+            cursor: pointer;
+            user-select: none;
+        }
+        &-today {
+            color: @primary-color;
+            transition: color @default-transition;
+            &:hover {
+            color: lighten(@primary-color, 10%);
+            }
+        }
+        &-clear {
+            color: @primary-color;
+            transition: color @default-transition;
+            margin-left: 10px;
+            &:hover {
+            color: lighten(@primary-color, 10%);
+            }
+        }
+        }
   }
   &-button {
     width: 22px;
