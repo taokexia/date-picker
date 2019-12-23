@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { DatePickerPanelCommonProps } from './panel'
 import cls from 'classnames'
 import moment from 'moment'
+import { ArrowLeftIcon, ArrowRightIcon } from '../Icon'
 
 interface DatePickerPanelHeaderProps extends DatePickerPanelCommonProps {
   selectedDate: moment.Moment
@@ -32,13 +33,13 @@ export function DatePickerPanelHeader(props: DatePickerPanelHeaderProps) {
           className={cls(`${panelHeaderPrefixCls}-switch-group`)}
           onClick={onSubtractMonth}
         >
-          前
+          <ArrowLeftIcon />
         </span>
         <span
           className={cls(`${panelHeaderPrefixCls}-switch-group`)}
           onClick={onAddMonth}
         >
-          后
+          <ArrowRightIcon />
         </span>
       </span>
     </div>

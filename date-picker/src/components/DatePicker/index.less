@@ -50,6 +50,19 @@
       width: @date-picker-content-width;
       user-select: none;
     }
+    &-suffix {
+        position: absolute;
+        top: 50%;
+        right: @input-suffix-offset;
+        transform: translateY(-50%);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: @disabled-font-color;
+        font-size: @font-size;
+    }
   }
   &-inner {
     display: inline-block;

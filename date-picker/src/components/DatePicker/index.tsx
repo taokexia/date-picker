@@ -4,6 +4,8 @@ import DatePickerPanel, { DatePickerPanelProps } from './panel'
 import cls from 'classnames'
 import { Moment } from 'moment'
 import './index.less'
+import { ClearIcon, CalendarIcon } from '../Icon'
+import useWindowResize from '../../hooks/useWindowResize'
 
 export interface DatePickerProps {
   prefixCls?: string
@@ -21,7 +23,7 @@ export interface DatePickerProps {
 }
 
 export default function DatePicker(props: DatePickerProps) {
-  const { placeholder, disabled, defaultValue, value, ...attr } = props
+  const { placeholder, disabled, defaultValue, value, allowClear, ...attr } = props
   const { prefixCls } = props
 
   const inputRef = useRef<HTMLInputElement>(null)
@@ -58,6 +60,10 @@ export default function DatePicker(props: DatePickerProps) {
     },
     [panelVisible, inputRef, panelRef]
   )
+
+  useWindowResize(() => {
+    setPanelPosition(getPanelPosition())
+  })
 
   useEffect(() => {
     window.addEventListener('click', onClickOutsideHandler, false)
@@ -109,6 +115,14 @@ export default function DatePicker(props: DatePickerProps) {
           onClick={onOpenPanel}
           value={selectedDate ? selectedDate.format('YYYY/MM/DD') : ''}
         />
+        {selectedDate && allowClear ? (
+           <ClearIcon
+             className={`${prefixCls}-input-suffix`}
+             onClick={onClearSelectedDate}
+           />
+         ) : (
+           <CalendarIcon className={`${prefixCls}-input-suffix`} />
+        )}
       </div>
       <DatePickerPanel
         position={panelPosition}
@@ -116,6 +130,7 @@ export default function DatePicker(props: DatePickerProps) {
         onGetPanelRef={onGetPanelRef}
         selectedDate={selectedDate}
         onSelectedDate={onSelectedDate}
+        allowClear={allowClear}
         onClearSelectedDate={onClearSelectedDate}
         {...attr}
       />
