@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`测试 DatePicker 组件 DatePicker 组件 的快照需要保持一致 1`] = `
+Array [
+  <div
+    class="date-picker-input-wrapper"
+  >
+    <input
+      class="date-picker-input"
+      readonly=""
+      type="text"
+      value=""
+    />
+    <svg
+      class="date-picker-input-suffix"
+      fill="none"
+      height="1em"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        height="18"
+        rx="2"
+        ry="2"
+        width="18"
+        x="3"
+        y="4"
+      />
+      <line
+        x1="16"
+        x2="16"
+        y1="2"
+        y2="6"
+      />
+      <line
+        x1="8"
+        x2="8"
+        y1="2"
+        y2="6"
+      />
+      <line
+        x1="3"
+        x2="21"
+        y1="10"
+        y2="10"
+      />
+    </svg>
+  </div>,
+  <div
+    class="date-picker-panel date-picker-close date-picker-no-animate"
+    style="left:0;top:0"
+  >
+    <div
+      class="date-picker-panel-header"
+    >
+      <span
+        class="date-picker-panel-header-selected-date"
+      >
+        <span
+          class="date-picker-panel-header-selected-date-year"
+        >
+          2019年
+        </span>
+        <span
+          class="date-picker-panel-header-selected-date-month"
+        >
+          12月
+        </span>
+      </span>
+      <span
+        class="date-picker-panel-header-switch"
+      >
+        <span
+          class="date-picker-panel-header-switch-group"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="15 18 9 12 15 6"
+            />
+          </svg>
+        </span>
+        <span
+          class="date-picker-panel-header-switch-group"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polyline
+              points="9 18 15 12 9 6"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="date-picker-panel-content"
+    >
+      <div
+        class="date-picker-panel-content-header"
+      >
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          一
+        </span>
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          二
+        </span>
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          三
+        </span>
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          四
+        </span>
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          五
+        </span>
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          六
+        </span>
+        <span
+          class="date-picker-panel-content-header-day date-picker-day-title"
+        >
+          日
+        </span>
+      </div>
+      <div>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-prev-month"
+        >
+          25
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-prev-month"
+        >
+          26
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-prev-month"
+        >
+          27
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-prev-month"
+        >
+          28
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-prev-month"
+        >
+          29
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-prev-month"
+        >
+          30
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          1
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          2
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          3
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          4
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          5
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          6
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          7
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          8
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          9
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          10
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          11
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          12
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          13
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          14
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          15
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          16
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          17
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          18
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          19
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          20
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          21
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          22
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month date-picker-selected-date"
+        >
+          23
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          24
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          25
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          26
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          27
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          28
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          29
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          30
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-current-month"
+        >
+          31
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-next-month"
+        >
+          1
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-next-month"
+        >
+          2
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-next-month"
+        >
+          3
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-next-month"
+        >
+          4
+        </span>
+        <span
+          class="date-picker-panel-content-date date-picker-panel-content-next-month"
+        >
+          5
+        </span>
+      </div>
+    </div>
+    <div
+      class="date-picker-panel-footer"
+    >
+      <div
+        class="date-picker-panel-footer-today"
+      >
+        今天
+      </div>
+      <div
+        class="date-picker-panel-footer-clear"
+      >
+        清除
+      </div>
+    </div>
+  </div>,
+]
+`;
